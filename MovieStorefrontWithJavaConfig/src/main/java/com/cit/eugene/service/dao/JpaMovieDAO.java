@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.cit.eugene.model.Genre;
 import com.cit.eugene.model.Movie;
 
+//http://spring.io/blog/2013/07/04/spring-security-java-config-preview-method-security
 @Repository
 public class JpaMovieDAO implements MovieDAO {
 

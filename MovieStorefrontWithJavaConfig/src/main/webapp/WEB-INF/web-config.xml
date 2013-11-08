@@ -13,14 +13,14 @@
 
 	<mvc:annotation-driven/>
 	 -->
-	<mvc:interceptors>
-		<!-- An interceptor which keeps a JPA session open to allow lazy loading of form backing objects -->
+	<!-- <mvc:interceptors>
+		An interceptor which keeps a JPA session open to allow lazy loading of form backing objects 
 		<bean id="openSessionInViewInterceptor" class="org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor">
     		<property name="entityManagerFactory" ref="entityManagerFactory" />
 		</bean>
 	</mvc:interceptors>
 
-	
+	-->
 	<!-- Resolves logical view names to JSP views 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
