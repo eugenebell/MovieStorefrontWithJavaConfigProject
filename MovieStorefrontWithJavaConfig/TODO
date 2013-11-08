@@ -1,5 +1,5 @@
-Java Config TODO
-Fix logout
+Java Config TODO:
+------------------------------------
 Remove XML config files
 Fix denied access page
 Fix unit tests
@@ -9,6 +9,7 @@ review POM for latest JAR versions
 
 
 Other examples
+--------------------------------------
 SSO/OAuth security example.
 Spring Data conversion example.
 MongoDB example.
