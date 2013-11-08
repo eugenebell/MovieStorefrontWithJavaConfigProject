@@ -1,10 +1,17 @@
 package com.cit.eugene.configuration;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.core.Ordered;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
@@ -15,6 +22,12 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @ComponentScan(basePackages = {"com.cit.eugene.web"})
 public class WebApplicationConfig extends WebMvcConfigurerAdapter  {
 
+	private LocalContainerEntityManagerFactoryBean entityManagerFactory;
+	
+	@Autowired
+	public void setLocalContainerEntityManagerFactoryBean(LocalContainerEntityManagerFactoryBean entityManagerFactory) {
+		this.entityManagerFactory = entityManagerFactory;
+	}
 	
 	@Override
     public void addViewControllers(ViewControllerRegistry registry) {
@@ -23,6 +36,14 @@ public class WebApplicationConfig extends WebMvcConfigurerAdapter  {
         registry.addViewController("/").setViewName("index");
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
+	
+	//http://zeroturnaround.com/rebellabs/your-next-java-web-app-less-xml-no-long-restarts-fewer-hassles-part-2/
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+	 OpenEntityManagerInViewInterceptor interceptor = new OpenEntityManagerInViewInterceptor();
+	 interceptor.setEntityManagerFactory(entityManagerFactory.getObject());
+	 registry.addWebRequestInterceptor(interceptor);
+	}
 	
 	@Bean
     public InternalResourceViewResolver getInternalResourceViewResolver() {

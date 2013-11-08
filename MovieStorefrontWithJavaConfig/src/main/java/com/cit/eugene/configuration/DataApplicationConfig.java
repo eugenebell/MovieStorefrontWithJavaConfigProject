@@ -35,9 +35,9 @@ public class DataApplicationConfig {
 	}
 	
 	@Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource, JpaVendorAdapter jpaVendorAdapter) {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
-        factory.setJpaVendorAdapter(jpaVendorAdapter);
+        factory.setJpaVendorAdapter(jpaVendorAdapter());
         factory.setDataSource(dataSource());
         factory.setPersistenceUnitName("video-unit");
         //factory.afterPropertiesSet();
@@ -56,7 +56,8 @@ public class DataApplicationConfig {
 
     @Bean
     public PlatformTransactionManager transactionManager() {
-        return new JpaTransactionManager();
+    	return new JpaTransactionManager(entityManagerFactory().getObject());
+//        return new JpaTransactionManager();
     }
 
     //TODO use flyway instead
