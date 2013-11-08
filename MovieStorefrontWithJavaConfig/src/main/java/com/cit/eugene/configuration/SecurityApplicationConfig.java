@@ -12,7 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 //http://spring.io/blog/2013/07/04/spring-security-java-config-preview-method-security
-
+//http://docs.spring.io/autorepo/docs/spring-security/3.2.0.RC2/reference/htmlsingle/#abstractsecuritywebapplicationinitializer-with-spring-mvc
 @Configuration
 @EnableWebSecurity
 //securedEnabled=true Enables Spring security, others include JSR250 and prePost
