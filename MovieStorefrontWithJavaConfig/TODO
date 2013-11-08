@@ -1,0 +1,18 @@
+Java Config TODO
+Fix logout
+Remove XML config files
+Fix denied access page
+Fix unit tests
+add dataSource properties file to java config
+Fix error message properties file
+review POM for latest JAR versions
+
+
+Other examples
+SSO/OAuth security example.
+Spring Data conversion example.
+MongoDB example.
+Redis example.
+Neo4j example.
+Pagination example.
+Thymeleaf example.
