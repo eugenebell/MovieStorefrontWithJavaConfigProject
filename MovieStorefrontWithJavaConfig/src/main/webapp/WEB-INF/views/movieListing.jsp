@@ -18,9 +18,10 @@
 	<div id="main_wrapper">
 		<p>
 			<br /> <a class="logout"
-				href="<c:url value="/j_spring_security_logout"/>">Logout</a> (
-			<security:authentication property="principal.username" />
-			)
+				href="<c:url value="/j_spring_security_logout"/>">Logout</a>
+			<security:authorize access="isAuthenticated()">
+				(<security:authentication property="principal.username" />)
+			</security:authorize>
 		</p>
 		<security:authorize ifAllGranted="ROLE_ADMIN">
 			<div class="main_menu">

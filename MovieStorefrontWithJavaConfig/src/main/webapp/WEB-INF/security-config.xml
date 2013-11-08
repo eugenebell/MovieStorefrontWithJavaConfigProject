@@ -8,28 +8,23 @@
                            http://www.springframework.org/schema/util 
                            http://www.springframework.org/schema/util/spring-util-3.0.xsd
                            http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
-
+ <!-- 
 	<security:http access-denied-page="/movies/denied.htm">
-		<security:form-login login-page="/movies/login.htm" authentication-failure-url="/movies/login.htm?login_error=true" />
-		<security:intercept-url pattern="/movies/denied.htm" filters="none"/>
-		<security:intercept-url pattern="/movies/login.htm*" filters="none"/>
-		<security:intercept-url pattern="/favicon.ico" filters="none"/>
-		<security:intercept-url pattern="/images/**" filters="none"/>
-        <security:intercept-url pattern="/styles/**" filters="none"/>        
-		<security:intercept-url pattern="/scripts/**" filters="none"/>
+
 		<security:intercept-url pattern="/movies/movieListing/**" access="ROLE_ADMIN, ROLE_USER" />
 		<security:intercept-url pattern="/movies/createVideoStoremember*" access="ROLE_ADMIN" />
 		<security:intercept-url pattern="/movies/**" access="IS_AUTHENTICATED_FULLY" />
-		<security:logout/>
+
 	</security:http>
-	 <!-- 
+	
 	 <security:authentication-manager>
 		<security:authentication-provider>
 			<security:jdbc-user-service data-source-ref="dataSource" users-by-username-query="select USERNAME, PASSWORD, ENABLED from USERS where USERNAME = ?" authorities-by-username-query="select USERNAME, AUTHORITY from AUTHORITIES where USERNAME = ?"/>
 		</security:authentication-provider>
 	</security:authentication-manager>
-	 -->
+	
 	<security:global-method-security secured-annotations="enabled">
 		<security:protect-pointcut expression="execution(* com.cit.eugene..*ManagerImpl.*(..))" access="ROLE_USER,ROLE_ADMIN" />
 	</security:global-method-security>
+	 -->
 </beans>

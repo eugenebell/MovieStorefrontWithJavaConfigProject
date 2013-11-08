@@ -9,10 +9,10 @@
 
 	<!-- Configuration for the movies management dispatcher servlet -->
 	<!-- note that we have a scan for our service layer which is at com.cit.eugene.service see JIRA SPR-5082 for info -->
-	<context:component-scan base-package="com.cit.eugene.web"/>
+<!-- 	<context:component-scan base-package="com.cit.eugene.web"/>
 
 	<mvc:annotation-driven/>
-	
+	 -->
 	<mvc:interceptors>
 		<!-- An interceptor which keeps a JPA session open to allow lazy loading of form backing objects -->
 		<bean id="openSessionInViewInterceptor" class="org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor">
@@ -20,16 +20,13 @@
 		</bean>
 	</mvc:interceptors>
 
-	<!-- Simple redirects to internal resources; URL path substring becomes view name (e.g. '/login.htm' -> 'login') -->
-	<mvc:view-controller path="/login.htm"/>
-	<mvc:view-controller path="/denied.htm"/>
 	
-	<!-- Resolves logical view names to JSP views -->
+	<!-- Resolves logical view names to JSP views 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-
+-->
 	<!-- Returns messages based on a resource bundle -->
 	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basenames" value="/WEB-INF/messages/validation,/WEB-INF/messages/errors" />
