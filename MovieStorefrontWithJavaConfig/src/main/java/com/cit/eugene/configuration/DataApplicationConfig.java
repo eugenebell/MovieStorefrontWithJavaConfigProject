@@ -2,10 +2,13 @@ package com.cit.eugene.configuration;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.env.Environment;
 import org.springframework.core.io.Resource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
@@ -20,17 +23,25 @@ import org.springframework.transaction.PlatformTransactionManager;
 //import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
+@PropertySource("classpath:/com/cit/eugene/configuration/datasource.properties")
 @Import({ApplicationConfig.class, SecurityApplicationConfig.class})
 public class DataApplicationConfig {
+
+    private Environment environment;
+    
+	@Autowired	
+	public void setEnvironment(Environment environment) {
+		this.environment = environment;
+	}
 
 	@Bean
 	public DataSource dataSource() {
 		//TODO put properties file here!
 		DriverManagerDataSource ds = new DriverManagerDataSource();
-		ds.setDriverClassName("com.mysql.jdbc.Driver");
-		ds.setUrl("jdbc:mysql://localhost:3306/movies");
-		ds.setUsername("root");
-		ds.setPassword("password");
+		ds.setDriverClassName(environment.getProperty("datasource.driverClassName"));
+		ds.setUrl(environment.getProperty("datasource.url"));
+		ds.setUsername(environment.getProperty("datasource.username"));
+		ds.setPassword(environment.getProperty("datasource.password"));
 		return ds;
 	}
 	

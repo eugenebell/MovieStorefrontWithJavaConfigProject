@@ -3,7 +3,6 @@ Java Config TODO:
 Remove XML config files
 Fix denied access page
 Fix unit tests
-add dataSource properties file to java config
 Fix error message properties file
 review POM for latest JAR versions
 
