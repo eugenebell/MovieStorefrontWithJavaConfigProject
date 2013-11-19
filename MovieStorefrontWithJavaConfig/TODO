@@ -2,9 +2,7 @@ Java Config TODO:
 ------------------------------------
 Remove XML config files
 Fix denied access page
-Fix unit tests
 Fix error message properties file
-review POM for latest JAR versions
 
 
 Other examples
@@ -16,3 +14,4 @@ Redis example.
 Neo4j example.
 Pagination example.
 Thymeleaf example.
+Remove XML config for unit tests
