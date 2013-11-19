@@ -20,7 +20,6 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
-//import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
 @PropertySource("classpath:/com/cit/eugene/configuration/datasource.properties")
@@ -36,7 +35,6 @@ public class DataApplicationConfig {
 
 	@Bean
 	public DataSource dataSource() {
-		//TODO put properties file here!
 		DriverManagerDataSource ds = new DriverManagerDataSource();
 		ds.setDriverClassName(environment.getProperty("datasource.driverClassName"));
 		ds.setUrl(environment.getProperty("datasource.url"));
@@ -51,8 +49,6 @@ public class DataApplicationConfig {
         factory.setJpaVendorAdapter(jpaVendorAdapter());
         factory.setDataSource(dataSource());
         factory.setPersistenceUnitName("video-unit");
-        //factory.afterPropertiesSet();
-        //factory.setLoadTimeWeaver(new InstrumentationLoadTimeWeaver());
        return factory;
     }
 
@@ -68,10 +64,8 @@ public class DataApplicationConfig {
     @Bean
     public PlatformTransactionManager transactionManager() {
     	return new JpaTransactionManager(entityManagerFactory().getObject());
-//        return new JpaTransactionManager();
     }
 
-    //TODO use flyway instead
     @Value("classpath:mysql-schema.sql")
     private Resource schemaScript;
 

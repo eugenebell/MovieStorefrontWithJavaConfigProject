@@ -9,8 +9,6 @@ import org.springframework.web.context.ContextLoaderListener;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
-
-
 // see http://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/web/WebApplicationInitializer.html
 //and http://spring.io/blog/2013/07/03/spring-security-java-config-preview-web-security
 //for more info.....

@@ -8,7 +8,7 @@ Fix error message properties file
 Other examples
 --------------------------------------
 SSO/OAuth security example.
-Spring Data conversion example.
+Spring Data conversion and Flyway example.
 MongoDB example.
 Redis example.
 Neo4j example.
