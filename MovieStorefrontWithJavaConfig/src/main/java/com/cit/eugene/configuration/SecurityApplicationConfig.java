@@ -45,7 +45,7 @@ public class SecurityApplicationConfig extends WebSecurityConfigurerAdapter {
 	 
 	 @Override
 	  protected void configure(HttpSecurity http) throws Exception {
-		 http
+		 http.csrf().disable()
 	        .authorizeRequests()
 	        .antMatchers("/index.html","/denied.htm","/favicon.ico").permitAll() 
 	        .antMatchers("/movies/movieListing/**").hasRole("USER")
