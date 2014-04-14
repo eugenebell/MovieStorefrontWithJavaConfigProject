@@ -18,7 +18,7 @@ function getMovieInfo(movieid) {
 								+ movie.year
 								+ '</p> <p>Run Time: '
 								+ movie.displayRunTime
-								+ '</p><p>Rental Price: £'
+								+ '</p><p>Rental Price: ï¿½'
 								+ movie.price
 								+ '</p>';
 								if (movie.rented) {									
@@ -117,7 +117,7 @@ function showMovieReservationListing(memberid) {
 										row = row + '<img width="48" height="48" src="../images/completed.jpg"/></td>';
 									} else {
 										row = row + '<img onclick="rented('
-										+ memberid + ',' + movieMemberReservations[i].movieReservationID
+										+ memberid + ',' + movieMemberReservations[i].movie.movieID
 										+ ')" width="48" height="48" src="../images/rent.jpg"/></td>';
 									}
 									+'</tr>';
